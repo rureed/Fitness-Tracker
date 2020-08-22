@@ -11,7 +11,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost/workout", {
+  useNewUrlParser: true,
+  useFindAndModify: false
+});
 
 require("./routes/api-routes.js")(app);
 
