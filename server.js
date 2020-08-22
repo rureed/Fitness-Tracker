@@ -6,6 +6,10 @@ const path = require("path");
 const PORT = process.env.PORT || 3000;
 const app = express();
 
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/workout";
+
+mongoose.connect(MONGODB_URI);
+
 app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
